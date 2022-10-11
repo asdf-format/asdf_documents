@@ -29,7 +29,7 @@ Introduction
 Based on a number of questions and comments about why we aren't using HDF5, that the first ASDF paper apparently hasn't addressed suitably well, this document is an attempt to explain in more detail why it hasn't been chosen for STScI use as a data format.
 
 
-For completeness, the original list of concerns (condensed) were:
+For completeness, the original list of concerns listed in the ASDF paper (condensed) were (see: https://www.sciencedirect.com/science/article/pii/S2213133715000645):
 
 
 1. Entirely binary.
@@ -37,7 +37,7 @@ For completeness, the original list of concerns (condensed) were:
 3. Effectively only one implementation (due to complexity)
 4. Questionable as an archival format
 5. Does not lend itself to pure text-based data files as an option
-6. HDF5 Abstract Data Model not flexible enough.
+6. HDF5 Abstract Data Model not flexible enough
 
 
 And two additional items not enumerated in the original:
@@ -96,7 +96,7 @@ The situation for lists is worse since there is no equivalent mechanism in HDF5 
 There are two uses of the YAML “anchor” and “alias” features in this ASDF example. This feature allows associating an “anchor”, essentially a special identifier, to a node in the tree that other parts of the tree can refer to through the use of “aliases” that references that special identifier. In this way another node may point to the contents of a different node for reference, avoiding having to copy the contents and risk the two nodes becoming different in the future. In this example one of the referenced nodes was fairly large (but small compared to the total tree), but only had one alias that referenced it. There were several references to a much smaller node. All these aliases were replaced by copies in the ASDF to avoid the work of supporting such aliases in the conversion.
 
 
-A small segment of the contents of the HDF5 file is displayed in Appendix E to contrast the difficulty of directly interpreting the contents as compared to ASDF. In the ASCII rendition one can see where some keys are located, but not much beyond that.
+A small segment of the contents of the HDF5 file is displayed in `Appendix E`_ to contrast the difficulty of directly interpreting the contents as compared to ASDF. In the ASCII rendition one can see where some keys are located, but not much beyond that.
 
 
 Disk space comparison
