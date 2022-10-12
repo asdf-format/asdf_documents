@@ -14,7 +14,7 @@ except KeyError:
     pass
 
 try:
-    from sphinx_astropy.conf.v1 import *  # noqa
+    from sphinx_astropy.conf.v1 import exclude_patterns, extensions, intersphinx_mapping, rst_epilog
 except ImportError:
     print("ERROR: the documentation requires the sphinx-astropy package to be installed")
     sys.exit(1)
@@ -36,11 +36,11 @@ version = ".".join(release.split(".")[:2])
 # If your documentation needs a minimal Sphinx version, state it here.
 # needs_sphinx = '1.2'
 
-intersphinx_mapping["pypa-packaging"] = ("https://packaging.python.org/en/latest/", None)  # noqa
-intersphinx_mapping["asdf"] = ("https://asdf.readthedocs.io/en/latest/", None)  # noqa
-intersphinx_mapping["asdf-standard"] = ("https://asdf-standard.readthedocs.io/en/latest/", None)  # noqa
-intersphinx_mapping["asdf-astropy"] = ("https://asdf-astropy.readthedocs.io/en/latest/", None)  # noqa
-intersphinx_mapping["pytest"] = ("https://docs.pytest.org/en/latest/", None)  # noqa
+intersphinx_mapping["pypa-packaging"] = ("https://packaging.python.org/en/latest/", None)
+intersphinx_mapping["asdf"] = ("https://asdf.readthedocs.io/en/latest/", None)
+intersphinx_mapping["asdf-standard"] = ("https://asdf-standard.readthedocs.io/en/latest/", None)
+intersphinx_mapping["asdf-astropy"] = ("https://asdf-astropy.readthedocs.io/en/latest/", None)
+intersphinx_mapping["pytest"] = ("https://docs.pytest.org/en/latest/", None)
 
 # To perform a Sphinx version check that needs to be more specific than
 # major.minor, call `check_sphinx_version("x.y.z")` here.
@@ -48,11 +48,11 @@ intersphinx_mapping["pytest"] = ("https://docs.pytest.org/en/latest/", None)  # 
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
-exclude_patterns.append("_templates")  # noqa
+exclude_patterns.append("_templates")
 
 # This is added to the end of RST files - a good place to put substitutions to
 # be used globally.
-rst_epilog += """"""  # noqa
+rst_epilog += """"""
 
 # -- Project information ------------------------------------------------------
 
@@ -118,7 +118,12 @@ latex_logo = "_static/logo.pdf"
 man_pages = [("index", project.lower(), project + " Documentation", [author], 1)]
 
 sys.path.insert(0, os.path.join(os.path.abspath(os.path.dirname("__file__")), "sphinxext"))
-extensions += ["sphinx_asdf"]  # noqa
+extensions += ["sphinx_asdf"]
+
+# Enable nitpicky mode - which ensures that all references in the docs
+# resolve.
+
+nitpicky = True
 
 
 def setup(app):
