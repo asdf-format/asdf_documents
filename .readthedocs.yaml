@@ -17,4 +17,5 @@ python:
     - method: pip
       path: .
 
-formats: all
+# No extra formats
+formats: []
