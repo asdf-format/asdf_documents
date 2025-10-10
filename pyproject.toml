@@ -4,7 +4,7 @@ description = 'ASDF documents'
 readme = 'README.md'
 requires-python = '>=3.8'
 license = { file = 'LICENSE' }
-authors = [{ name = 'The ASDF Developers', email = 'help@stsci.edu' }]
+authors = [{ name = 'The ASDF Developers' }]
 classifiers = [
     'Programming Language :: Python',
     'Programming Language :: Python :: 3',
